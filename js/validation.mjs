@@ -5,6 +5,8 @@ btnSubmit.addEventListener('click', e=>{
     if( !isTxt('userid', 5)) e.preventDefault();
     if( !isTxt('comments', 10)) e.preventDefault();
     if( !isEmail('email', 10)) e.preventDefault();
+    if( !isCheck('gender')) e.preventDefault();
+    if( !isCheck('hobby')) e.preventDefault();
 })
 
 function isTxt(name, len){
@@ -43,6 +45,29 @@ function isEmail(name,len){
         const errMsg= document.createElement('p');
         errMsg.append(`@를 포함한 메일주소를 ${len}글자 이상 입력하세요.`);
         input.closest('td').append(errMsg);
+
+        return false;
+    }
+}
+
+function isCheck(name){
+    const inputs = form.querySelectorAll(`[name=${name}]`);
+    let isChecked = false;
+
+    for(let input of inputs) if(input.checked) isChecked = true;
+
+    if(isChecked){
+        const errMsgs = inputs[0].closest('td').querySelectorAll('p');
+        if(errMsgs.length > 0) inputs[0].closest('td').querySelector('p').remove();
+
+        return true;
+    }else{
+        const errMsgs = inputs[0].closest('td').querySelectorAll('p');
+        if(errMsgs.length > 0) inputs[0].closest('td').querySelector('p').remove();
+
+        const errMsg = document.createElement('p');
+        errMsg.append('필수 입력항목을 하나이상 체크해주세요.');
+        inputs[0].closest('td').append(errMsg);
 
         return false;
     }
