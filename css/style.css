@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap");
+table {
+  width: 500px;
+  border-collapse: collapse;
+}
+table th, table td {
+  height: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */
