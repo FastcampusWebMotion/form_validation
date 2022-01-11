@@ -1,8 +1,25 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+ul, ol, li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+fieldset {
+    border: none;
+}
 table {
-    width: 500px;
     border-collapse: collapse;
-
-    th, td {      
-        height: 30px;
-    }
+}
+input, label {
+    vertical-align: middle;
+}
+.h {
+    position: absolute;
+    top: -99999px; 
+    opacity: 0;
 }
